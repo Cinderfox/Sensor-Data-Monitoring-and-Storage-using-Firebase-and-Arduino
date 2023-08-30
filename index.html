@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <!-- 
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css"/>
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script> -->
+</head>
+<body>
+  <!-- </ id="dk" type="button" onclick="check()" value="Display"> -->
+
+  <button id="dk"></button>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
+
+    const firebaseConfig = {
+        apiKey: "[Enter API key here]",
+        authDomain: "[Enter authDomain here]",
+        databaseURL: "[Enter databaseURL here]",
+        projectId: "[Enter projectId here]",
+        storageBucket: "login-det-57a8b.appspot.com",
+        messagingSenderId: "[Enter messagingSenderId here]",
+        appId: "[Enter appId here]"
+    };
+
+    const app = initializeApp(firebaseConfig);
+
+    import { getDatabase, set, get, update, remove, ref, child } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-database.js";
+
+    const db = getDatabase();
+    var getb = document.getElementById("dk");
+    getb.addEventListener('click', setInterval(getdata, 1000));
+
+    function getdata() {
+      const dbref = ref(db);
+      // get(child(dbref, "py/-NGrxOmYZBsqDXzESjoh/-NGrxasgxR2JZpRGZsSj")).then((snapshot) => {
+      //   if (snapshot.exists()) {
+      //     find2.innerHTML = snapshot.val().Values;
+      //   }
+      //   else {
+      //     alert("no data found");
+      //   }
+      // })
+      //   .catch((err) => {
+      //     alert(err)
+      //   });
+      // get(child(dbref, "py/-NGrxOmYZBsqDXzESjoh/-NGrxaqlWUSuxAVOSdME")).then((snapshot) => {
+      get(child(dbref, "records/")).then((snapshot) => {
+        if (snapshot.exists()) {
+          console.log(snapshot.val().Values);
+          find1.innerHTML = snapshot.val().Values;
+
+        }
+        else {
+          alert("no data found");
+        }
+      })
+        .catch((err) => {
+          alert(err)
+        });
+
+      get(child(dbref, "py/-NGrxOmYZBsqDXzESjoh/-NGrxaoiSoaQFwxIa4ry")).then((snapshot) => {
+        if (snapshot.exists()) {
+
+          find1.innerHTML = snapshot.val().Values;
+
+        }
+        else {
+          alert("no data found");
+        }
+      })
+        .catch((err) => {
+          alert(err)
+        });
+
+
+      get(child(dbref, "py/-NGrxOmYZBsqDXzESjoh/-NGrxakR6-31NEFaXp4w")).then((snapshot) => {
+        if (snapshot.exists()) {
+
+          findval.innerHTML = snapshot.val().Values;
+
+        }
+
+        else {
+          alert("no data found");
+        }
+      })
+        .catch((err) => {
+          alert(err)
+        });
+
+      get(child(dbref, "py/-NGrxOmYZBsqDXzESjoh/-NGrxxGteXI7b9-uZtjv")).then((snapshot) => {
+        if (snapshot.exists()) {
+
+          find4.innerHTML = snapshot.val().Values;
+
+        }
+
+        else {
+          alert("no data found");
+        }
+      })
+        .catch((err) => {
+          alert(err)
+        });
+      get(child(dbref, "py/-NGrxOmYZBsqDXzESjoh/-NGrycUm-7jL2TU4Xi4c")).then((snapshot) => {
+        if (snapshot.exists()) {
+          find5.innerHTML = snapshot.val().Values;
+        }
+
+        else {
+          alert("no data found");
+        }
+      })
+        .catch((err) => {
+          alert(err)
+        });
+
+    }
+
+    function getdata2() {
+
+      const dbref = ref(db);
+
+      // get(child(dbref, "py/-NGrxOmYZBsqDXzESjoh/-NGrxaoiSoaQFwxIa4ry")).then((snapshot) => {
+      //   if (snapshot.exists()) {
+
+      //     find1.innerHTML = snapshot.val().Values;
+
+      //   }
+      //   else {
+      //     alert("no data found");
+      //   }
+      // })
+      //   .catch((err) => {
+      //     alert(err)
+      //   });
+
+    }
+
+
+
+  </script>
+
+  <div id="finddeta">
+    <h1 id="findval" type="text">value</h1>
+    <h1 id="find1" type="text">value</h1>
+    <h1 id="find2" type="text">value</h1>
+    <h1 id="find3" type="text">value</h1>
+    <h1 id="find4" type="text">value</h1>
+    <h1 id="find5" type="text">value</h1>
+  </div>
+</body>
+
+
+</html>
